@@ -14,7 +14,7 @@
     The ID (GUID) of the Power Automate flow whose runs you want to extract.
 
 .PARAMETER StartDate
-    Earliest run date to include (default: 21 days ago).
+    Earliest run date to include (default: 28 days ago).
 
 .PARAMETER EndDate
     Latest run date to include (default: today).
@@ -26,7 +26,7 @@
     .\1_Extract-FlowRunHistory.ps1 `
         -EnvironmentId "00000000-0000-0000-0000-000000000000" `
         -FlowId        "11111111-1111-1111-1111-111111111111" `
-        -StartDate     "2026-03-19" `
+        -StartDate     "2026-03-12" `
         -EndDate       "2026-04-09" `
         -OutputFolder  "C:\FlowRunExport"
 #>
@@ -40,7 +40,7 @@ param (
     [string]$FlowId,
 
     [Parameter(Mandatory = $false)]
-    [datetime]$StartDate = (Get-Date).AddDays(-21),
+    [datetime]$StartDate = (Get-Date).AddDays(-28),
 
     [Parameter(Mandatory = $false)]
     [datetime]$EndDate = (Get-Date),

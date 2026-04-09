@@ -14,7 +14,7 @@
     The flow ID (GUID).
 
 .PARAMETER StartDate
-    Earliest run date (default: 21 days ago).
+    Earliest run date (default: 28 days ago).
 
 .PARAMETER EndDate
     Latest run date (default: today).
@@ -38,7 +38,7 @@ param (
     [string]$FlowId,
 
     [Parameter(Mandatory = $false)]
-    [datetime]$StartDate = (Get-Date).AddDays(-21),
+    [datetime]$StartDate = (Get-Date).AddDays(-28),
 
     [Parameter(Mandatory = $false)]
     [datetime]$EndDate = (Get-Date),

@@ -4,7 +4,7 @@ Toolkit to extract Power Automate flow run history (logs and JSON payloads), ide
 
 ## Problem
 
-A Power Automate flow has been removing security roles from Dynamics 365 CE users based on expiration dates. The flow has been running daily, and the last 3 weeks of removals need to be analyzed and reverted.
+A Power Automate flow has been removing security roles from Dynamics 365 CE users based on expiration dates. The flow has been running daily, and the last 28 days of removals need to be analyzed and reverted.
 
 ## Solution Overview
 
@@ -50,7 +50,7 @@ Choose **one** of the two extraction methods.
 .\scripts\1_Extract-FlowRunHistory.ps1 `
     -EnvironmentId "your-environment-id" `
     -FlowId        "your-flow-id" `
-    -StartDate     "2026-03-19" `
+    -StartDate     "2026-03-12" `
     -EndDate       "2026-04-09" `
     -OutputFolder  "C:\FlowRunExport"
 ```
@@ -61,7 +61,7 @@ Choose **one** of the two extraction methods.
 .\scripts\4_Extract-FlowRunHistory-API.ps1 `
     -EnvironmentId "your-environment-id" `
     -FlowId        "your-flow-id" `
-    -StartDate     "2026-03-19" `
+    -StartDate     "2026-03-12" `
     -EndDate       "2026-04-09" `
     -OutputFolder  "C:\FlowRunExport"
 ```
@@ -166,7 +166,7 @@ Disable-Flow -EnvironmentName "your-env-id" -FlowName "your-flow-id"
 | "Could not obtain an access token" | Run `Connect-AzAccount` or install `MSAL.PS` |
 | Empty `RolesRemoved.csv` | Check the `ActionNamePatterns` parameter; your flow may use different action names |
 | 403 errors during restore | Ensure you have System Administrator role in D365 |
-| Flow run data missing | Power Automate retains run history for 28 days by default |
+| Flow run data missing | Power Automate retains run history for 28 days by default; run extraction ASAP before older runs expire |
 
 ## File Structure
 
